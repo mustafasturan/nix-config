@@ -76,10 +76,10 @@
         modules-center = [ "sway/window" ];
         modules-right = [ "clock" ];
         "sway/window" = {
-            "max-length": 50;
+            max-length =  50;
         };
         "clock" = {
-            "format-alt": "{:%a, %d. %b  %H:%M}";
+            format-alt = "{:%a, %d. %b  %H:%M}";
         };
       };
     };
