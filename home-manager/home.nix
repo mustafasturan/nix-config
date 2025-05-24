@@ -71,6 +71,7 @@
     settings = {
       mainbar = {
         layer = "top";
+        position = "top";
         modules-left = ["sway/workspaces", "sway/mode"];
         modules-center = ["sway/window"];
         modules-right = ["clock"];
