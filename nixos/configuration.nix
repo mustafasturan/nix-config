@@ -115,6 +115,9 @@
     package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
 
+  # Fan Control
+  hardware.fancontrol.enable = true;
+
   # Audio
   security.rtkit.enable = true;
   services = { 
