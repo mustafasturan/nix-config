@@ -114,6 +114,9 @@
     config = rec {
       modifier = "Mod4";
       terminal = "kitty";
+      startup = [
+        { command = "systemctl --user restart waybar"; always = true; }
+      ];
     };
     extraConfig = ''
       #output * scale 1.5
