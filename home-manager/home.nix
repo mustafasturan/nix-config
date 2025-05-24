@@ -61,10 +61,11 @@
   programs.kitty = {
     enable = true;
     extraConfig = ''
-      font_family = JetbrainsMono Nerd Font
-      font_size = 18
+      font_family JetBrainsMono Nerd Font 
+      font_size 18.0
     '';
   };
+
 
   wayland.windowManager.sway = {
     enable = true;
