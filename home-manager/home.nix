@@ -119,6 +119,12 @@
       ];
     };
     extraConfig = ''
+      bar {
+        mode invisible
+        hidden_state hide
+        position top
+        status_command while :; do sleep 1; done
+      }
       #output * scale 1.5
     '';
   };
