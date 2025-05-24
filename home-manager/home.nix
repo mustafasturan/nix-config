@@ -10,7 +10,7 @@
   # You can import other home-manager modules here
   imports = [
     # If you want to use home-manager modules from other flakes (such as nix-colors):
-    inputs.nix-colors.homeManagerModule
+    # inputs.nix-colors.homeManagerModule
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
@@ -65,7 +65,7 @@
     wrapperFeatures.gtk = true;
     config = rec {
       modifier = "Mod4";
-      terminal = "kitty"
+      terminal = "kitty";
     };
     extraConfig = ''
       #output * scale 1.5
