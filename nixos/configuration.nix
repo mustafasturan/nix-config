@@ -167,6 +167,9 @@
 
   # Brightness and volume control
   programs.light.enable = true;
+
+  #Shell
+  programs.zsh.enable = true;
   
   # Configure your system-wide user settings (groups, etc), add more users as needed.
   users.users = {
