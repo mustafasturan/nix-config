@@ -46,15 +46,36 @@
 
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
-  # home.packages = with pkgs; [ steam ];
+  home.packages = with pkgs; [
+    mako
+    wl-clipboard
+  ];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
-  programs.git.enable = true;
+  programs.git = {
+    enable = true;
+    userName = "Mustafa Turan";
+    userEmail = "mustafasturan@gmail.com";
+  };
+  programs.kitty.enable = true;
+
+  wayland.windowManager.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+    config = rec {
+      modifier = "Mod4";
+      terminal = "kitty"
+      extraConfig = ''
+      #output * scale 1.5
+      '';
+    };
+  };
+  services.gnome-keyring.enable = true;
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "23.11";
+  home.stateVersion = "25.05";
 }
