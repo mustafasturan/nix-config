@@ -96,7 +96,7 @@
     shellAliases = {
       # Quick nix rebuild shortcut
       nr = "sudo nixos-rebuild switch --flake ~/Documents/nixos-config#nixos";
-      hr = "home-manager switch -flake ~/Documents/nixos-config/home-manager#turan@nixos";
+      hr = "home-manager switch --flake ~/Documents/nixos-config/home-manager#turan@nixos";
       ll = "ls -alh";
       g = "git";
     };
