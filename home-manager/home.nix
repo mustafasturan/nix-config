@@ -85,6 +85,29 @@
     };
   };
 
+  programs.zsh = {
+    enable = true;
+
+    # Optional: Set as your default shell
+    enableCompletion = true;
+    autosuggestions.enable = true;
+    syntaxHighlighting.enable = true;
+
+    shellAliases = {
+      # Quick nix rebuild shortcut
+      nr = "sudo nixos-rebuild switch --flake ~/Documents/nixos-config#nixos";
+      hr = "home-manager switch -flake ~/Documents/nixos-config/home-manager#turan@nixos";
+      ll = "ls -alh";
+      g = "git";
+    };
+
+    history = {
+      save = 10000;
+      share = true;
+      ignoreDups = true;
+    };
+  };
+
   wayland.windowManager.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
