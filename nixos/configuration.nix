@@ -131,17 +131,18 @@
   };
 
   # Sway needs this
-  services.polkit.enable = true;
+  security.polkit.enable = true;
 
   # Fonts
-  fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
   ];
 
   environment.systemPackages = with pkgs; [
     curl
     wget
-    nvim
+    git
+    neovim
     htop
     btop
     fastfetch
