@@ -133,13 +133,18 @@
   # Sway needs this
   security.polkit.enable = true;
 
-  services.greetd = {                                                      
-    enable = true;                                                         
-    settings = {                                                           
-      default_session = {                                                  
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";                                           
-      };                                                                   
-    };                                                                     
+  services.greetd = let
+    swayNvidia = pkgs.writeShellScript "sway-nvidia" ''
+      exec ${pkgs.sway}/bin/sway --unsupported-gpu
+    '';
+  in {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --user turan --cmd ${swayNvidia}";
+        user = "greeter";
+      };
+    };
   };
 
   # Fonts
