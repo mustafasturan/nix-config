@@ -151,6 +151,7 @@
     fastfetch
     firefox
     pulseaudio
+    lm_sensors
   ];
 
   # Brightness and volume control
