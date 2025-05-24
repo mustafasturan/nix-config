@@ -72,9 +72,9 @@
       mainbar = {
         layer = "top";
         position = "top";
-        modules-left = ["sway/workspaces", "sway/mode"];
-        modules-center = ["sway/window"];
-        modules-right = ["clock"];
+        modules-left = [ "sway/workspaces" "sway/mode" ];
+        modules-center = [ "sway/window" ];
+        modules-right = [ "clock" ];
         "sway/window" = {
             "max-length": 50;
         };
