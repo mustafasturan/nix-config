@@ -66,10 +66,10 @@
     config = rec {
       modifier = "Mod4";
       terminal = "kitty"
-      extraConfig = ''
-      #output * scale 1.5
-      '';
     };
+    extraConfig = ''
+      #output * scale 1.5
+    '';
   };
   services.gnome-keyring.enable = true;
 
