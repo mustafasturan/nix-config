@@ -141,7 +141,7 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --user turan --cmd ${swayNvidia}";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --user-menu --cmd ${swayNvidia}";
         user = "greeter";
       };
     };
