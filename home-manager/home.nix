@@ -115,7 +115,7 @@
       modifier = "Mod4";
       terminal = "kitty";
       startup = [
-        { command = "systemctl --user restart waybar"; always = true; }
+        { command = "waybar"; always = true; }
       ];
     };
     extraConfig = ''
