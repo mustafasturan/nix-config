@@ -90,7 +90,7 @@
 
     # Optional: Set as your default shell
     enableCompletion = true;
-    autosuggestions.enable = true;
+    autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
     shellAliases = {
