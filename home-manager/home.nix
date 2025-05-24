@@ -58,7 +58,13 @@
     userName = "Mustafa Turan";
     userEmail = "mustafasturan@gmail.com";
   };
-  programs.kitty.enable = true;
+  programs.kitty = {
+    enable = true;
+    extraConfig = ''
+      font_family = JetbrainsMono Nerd Font
+      font_size = 18
+    '';
+  };
 
   wayland.windowManager.sway = {
     enable = true;
