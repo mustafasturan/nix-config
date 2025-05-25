@@ -12,4 +12,9 @@
     LC_TELEPHONE = "tr_TR.UTF-8";
     LC_TIME = "tr_TR.UTF-8";
   };
+
+  services.xserver.xkb = {
+    layout = "us";
+    variant = "";
+  };
 }
