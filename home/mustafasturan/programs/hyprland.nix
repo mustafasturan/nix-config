@@ -10,7 +10,7 @@ in {
     ./hypridle.nix
     ./hyprlock.nix
     ./mako.nix
-    /rofi.nix
+    ./rofi.nix
     ./waybar.nix
   ];
 
