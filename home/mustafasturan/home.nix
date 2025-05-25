@@ -9,8 +9,7 @@
     ./programs/docker.nix
     ./programs/dotnet.nix
     ./programs/git.nix
-    ./programs/hypridle.nix
-    ./programs/hyprlock.nix
+    ./programs/hyprland.nix
     ./programs/kitty.nix
     ./programs/neovim.nix
     ./programs/nodejs.nix
