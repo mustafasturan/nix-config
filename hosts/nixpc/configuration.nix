@@ -49,6 +49,18 @@
       ];
   };
 
+  environment.systemPackages = with pkgs; [
+    curl
+    wget
+    fzf
+    bat
+    git
+    btop
+    htop
+    fastfetch
+    jq
+  ];
+
   # Fonts
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono

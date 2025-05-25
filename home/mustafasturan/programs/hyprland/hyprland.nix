@@ -24,16 +24,21 @@ in {
     hyprlock
     hyprshot
     brightnessctl
-    pavucontrol
     playerctl
-    curl
-    jq
+    pavucontrol
     networkmanagerapplet
     cliphist 
     wl-clipboard
-    fzf
     swww
   ];
+
+  home.sessionVariables = {
+    MOZ_ENABLE_WAYLAND = "1";      # Wayland-native Firefox/Thunderbird
+    NIXOS_OZONE_WL = "1";          # Wayland support in Electron/Chromium apps
+    QT_QPA_PLATFORM = "wayland";   # Qt apps use Wayland
+    SDL_VIDEODRIVER = "wayland";   # SDL games/apps use Wayland
+    CLUTTER_BACKEND = "wayland";   # GNOME-based apps fallback (if used)
+  };
 
   wayland.windowManager.hyprland = {
     enable = true;
