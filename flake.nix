@@ -18,7 +18,7 @@
 
     # Build command: 'home-manager --flake .#your-username@your-hostname'
     homeConfigurations = {
-      "mustafa@nixpc" = home-manager.lib.homeManagerConfiguration {
+      "mustafasturan@nixpc" = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs { system = "x86_64-linux"; };
         modules = [ ./home/mustafa/home.nix ];
       };
