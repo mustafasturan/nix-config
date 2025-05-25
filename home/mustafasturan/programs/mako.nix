@@ -1,16 +1,14 @@
-{ config, pkgs, ... }: {
-  home.packages = with pkgs; [ jetbrains-mono-nerdfont ];
-  
+{ config, pkgs, ... }: {  
   services.mako = {
     enable = true;
-    defaultTimeout = 5000;
-    backgroundColor = "#1e1e2e";
-    borderColor = "#89b4fa";
-    textColor = "#ffffff";
-    font = "JetBrainsMono Nerd Font 12";
-    borderSize = 2;
-    padding = "10";
-    maxVisible = 5;
-    anchor = "top-right";
-  };
+    settings = {
+      default-timeout = 5000;
+      background-color = "#1e1e2e";
+      border-color = "#89b4fa";
+      border-size = 2;
+      padding = "10";
+      text-color = "#ffffff";
+      max-visible = 5;
+      anchor = "top-right";
+    };
 }
