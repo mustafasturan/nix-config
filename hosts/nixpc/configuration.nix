@@ -67,6 +67,8 @@
     xwayland.enable = true;
   };
 
+  services.getty.autologinUser = "mustafasturan";
+
   services.greetd = {
     enable = true;
     settings = {
