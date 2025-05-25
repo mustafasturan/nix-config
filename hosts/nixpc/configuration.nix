@@ -59,7 +59,23 @@
     htop
     fastfetch
     jq
+    greetd.regreet
   ];
+
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "Hyprland";
+        user = "mustafasturan"; 
+      };
+    };
+  };
 
   # Fonts
   fonts.packages = with pkgs; [
@@ -74,9 +90,6 @@
     };
   };
 
-  programs.hyprland.enable = true;
-  programs.hyprland.withUWSM  = true;
-
   xdg.portal = {
     enable = true;
     extraPortals = [
@@ -89,8 +102,6 @@
 
   services.xserver.enable = false;
   services.displayManager.enable = false;
-  
-  services.getty.autologinUser = "mustafasturan";
 
   system.stateVersion = "25.05";
 

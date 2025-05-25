@@ -36,9 +36,15 @@ in {
   home.sessionVariables = {
     MOZ_ENABLE_WAYLAND = "1";      # Wayland-native Firefox/Thunderbird
     NIXOS_OZONE_WL = "1";          # Wayland support in Electron/Chromium apps
-    QT_QPA_PLATFORM = "wayland";   # Qt apps use Wayland
     SDL_VIDEODRIVER = "wayland";   # SDL games/apps use Wayland
     CLUTTER_BACKEND = "wayland";   # GNOME-based apps fallback (if used)
+    XDG_CURRENT_DESKTOP = "Hyprland"; # Set desktop environment
+    XDG_SESSION_TYPE = "wayland";  # Set session type to Wayland
+    XDG_SESSION_DESKTOP = "hyprland"; # Set session desktop to Hyprland
+    QT_AUTO_SCREEN_SCALE_FACTOR = "1"; # Qt apps scale automatically
+    QT_QPA_PLATFORM = "wayland";   # Qt apps use Wayland
+    QT_WAYLAND_DISABLE_WINDOWDECORATION = "1"; # Disable window decorations in Qt apps
+    QT_QPA_PLATFORMTHEME = "qt6ct"; # Use qt6ct for Qt apps theming
   };
 
   wayland.windowManager.hyprland = {
@@ -46,8 +52,6 @@ in {
     # set the Hyprland and XDPH packages to null to use the ones from the NixOS module
     package = null;
     portalPackage = null;
-    # it conflicts with uwsm.
-    systemd.enable = false;
 
     settings = {
       "$mod" = "SUPER";
