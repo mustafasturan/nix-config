@@ -20,7 +20,7 @@
     homeConfigurations = {
       "mustafasturan@nixpc" = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs { system = "x86_64-linux"; };
-        modules = [ ./home/mustafa/home.nix ];
+        modules = [ ./home/mustafasturan/home.nix ];
       };
     };
   };
