@@ -59,7 +59,6 @@
       pkgs.xdg-desktop-portal-gtk      # For GTK dialogs
       pkgs.xdg-desktop-portal-hyprland # For Wayland + Hyprland integration
     ];
-    config.common.default = "*";       # Fallback portal behavior
   };
 
   # Ensure dbus is enabled (required for portals to work)
