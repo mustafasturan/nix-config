@@ -48,6 +48,7 @@
       PermitRootLogin = "no";
       #PasswordAuthentication = false;
     };
+  };
 
   services.xserver.enable = false;
   services.displayManager.enable = false;
@@ -55,5 +56,6 @@
   services.getty.autoLogin.enable = true;
   services.getty.autoLogin.user = "mustafasturan";
 
-   system.stateVersion = "25.05";
+  system.stateVersion = "25.05";
+
 }
