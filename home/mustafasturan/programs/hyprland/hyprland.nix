@@ -23,6 +23,7 @@ in {
     hypridle
     hyprlock
     hyprshot
+    hyprpolkitagent
     brightnessctl
     playerctl
     pavucontrol
@@ -45,12 +46,15 @@ in {
     # set the Hyprland and XDPH packages to null to use the ones from the NixOS module
     package = null;
     portalPackage = null;
+    # it conflicts with uwsm.
+    systemd.enable = false;
 
     settings = {
       "$mod" = "SUPER";
       exec-once = [
         "${pkgs.swww}/bin/swww-daemon || true"
         "${randomWallpaperScript} || true"
+        "systemctl --user start hyprpolkitagent"
         "mako"
         "waybar"
         "nm-applet"

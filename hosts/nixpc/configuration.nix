@@ -75,6 +75,7 @@
   };
 
   programs.hyprland.enable = true;
+  programs.hyprland.withUWSM  = true;
 
   xdg.portal = {
     enable = true;
