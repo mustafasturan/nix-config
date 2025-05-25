@@ -61,7 +61,7 @@
   };
 
   programs.hyprland.enable = true;
-  
+
   xdg.portal = {
     enable = true;
     extraPortals = [
@@ -78,5 +78,5 @@
   services.getty.autologinUser = "mustafasturan";
 
   system.stateVersion = "25.05";
-
+  
 }
