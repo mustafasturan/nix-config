@@ -21,11 +21,10 @@ in {
     brightnessctl
     pavucontrol
     playerctl
-    jetbrains-mono-nerdfont
     curl
     jq
-    nm-applet
-    blueman-applet
+    networkmanagerapplet
+    blueman
     cliphist 
     wl-clipboard
     fzf
