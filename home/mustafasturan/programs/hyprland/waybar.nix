@@ -10,7 +10,7 @@
 
       modules-left = [ "hyprland/workspaces" "hyprland/window" ];
       modules-center = [ "clock" ];
-      modules-right = [ "tray" "pulseaudio" "network" "cpu" "memory" ];
+      modules-right = [ "tray" "pulseaudio" "network" "cpu" "custom/gpu" "memory" ];
 
       "tray" = {
         spacing = 10;
@@ -26,6 +26,12 @@
       "cpu" = {
         format = "{usage}% ";
         tooltip = false;
+      };
+
+      "custom/gpu" = {
+        exec = "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits";
+        interval = 5;
+        format = "GPU: {}%";
       };
 
       "memory" = {
