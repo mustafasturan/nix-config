@@ -60,6 +60,8 @@
     };
   };
 
+  programs.hyprland.enable = true;
+  
   xdg.portal = {
     enable = true;
     extraPortals = [
@@ -67,7 +69,6 @@
       pkgs.xdg-desktop-portal-hyprland # For Wayland + Hyprland integration
     ];
   };
-
   # Ensure dbus is enabled (required for portals to work)
   services.dbus.enable = true;
 

@@ -24,7 +24,6 @@ in {
     curl
     jq
     networkmanagerapplet
-    blueman
     cliphist 
     wl-clipboard
     fzf
@@ -33,7 +32,11 @@ in {
 
   wayland.windowManager.hyprland = {
     enable = true;
+    # set the Hyprland and XDPH packages to null to use the ones from the NixOS module
+    package = null;
+    portalPackage = null;
     settings = {
+      "$mod" = "SUPER";
       exec-once = [
         "${pkgs.swww}/bin/swww-daemon"
         "${randomWallpaperScript}"
@@ -41,7 +44,6 @@ in {
         "waybar"
         "nm-applet"
         "blueman-applet"
-        "hyprlock"
         "cliphist store" ];
       monitor = ",preferred,auto,1";
 
@@ -60,7 +62,6 @@ in {
         blur_passes = 2;
       };
 
-      "$mod" = "SUPER";
       bind = [
         "$mod, RETURN, exec, kitty"
         "$mod, D, exec, rofi -show drun"
@@ -76,7 +77,20 @@ in {
         "$mod SHIFT, Q, exit"
         "$mod SHIFT, S, exec, hyprshot -m window -o ~/Pictures/Screenshots"
         "$mod CTRL, S, exec, hyprshot -m region -o ~/Pictures/Screenshots"
-      ];
+      ]
+      ++ (
+        # workspaces
+        # binds $mod + [shift +] {1..9} to [move to] workspace {1..9}
+        builtins.concatLists (builtins.genList (i:
+            let ws = i + 1;
+            in [
+              "$mod, code:1${toString i}, workspace, ${toString ws}"
+              "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
+            ]
+          )
+          9)
+      );
     };
+    systemd.variables = ["--all"];
   };
 }

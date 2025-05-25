@@ -6,16 +6,16 @@
   ...
 }: {
   imports = [  
-    ./programs/docker.nix
-    ./programs/dotnet.nix
-    ./programs/git.nix
-    ./programs/hyprland.nix
-    ./programs/kitty.nix
-    ./programs/neovim.nix
-    ./programs/nodejs.nix
-    ./programs/rider.nix
-    ./programs/vscode.nix
-    ./programs/zsh.nix
+    ./programs/docker/docker.nix
+    ./programs/dotnet/dotnet.nix
+    ./programs/git/git.nix
+    ./programs/hyprland/hyprland.nix
+    ./programs/kitty/kitty.nix
+    ./programs/neovim/neovim.nix
+    ./programs/nodejs/nodejs.nix
+    ./programs/rider/rider.nix
+    ./programs/vscode/vscode.nix
+    ./programs/zsh/zsh.nix
   ];
 
   nixpkgs = {
@@ -37,14 +37,34 @@
     };
   };
 
+  # Enable home-manager
+  programs.home-manager.enable = true;
+
   home = {
     username = "mustafasturan";
     homeDirectory = "/home/mustafasturan";
+    pointerCursor = {
+      gtk.enable = true;
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Classic";
+      size = 16;
+    };
   };
-
-  # Enable home-manager and git
-  programs.home-manager.enable = true;
-  programs.git.enable = true;
+  gtk = {
+    enable = true;
+    theme = {
+      package = pkgs.flat-remix-gtk;
+      name = "Flat-Remix-GTK-Grey-Darkest";
+    };
+    iconTheme = {
+      package = pkgs.adwaita-icon-theme;
+      name = "Adwaita";
+    };
+    font = {
+      name = "Sans";
+      size = 11;
+    };
+  };
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
