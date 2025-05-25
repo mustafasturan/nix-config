@@ -1,5 +1,6 @@
 { config, pkgs, ... }: {
   imports = [
+    ./hardware-configuration.nix
     ../../modules/amd.nix
     ../../modules/bluetooth.nix
     ../../modules/bootloader.nix
@@ -31,6 +32,8 @@
     networkmanager.enable = true;
     hostName = "nixpc";
   };
+
+  programs.zsh.enable = true;
 
   users.users.mustafasturan = {
     isNormalUser = true;
