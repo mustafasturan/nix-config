@@ -8,5 +8,10 @@
       ci = "commit";
       st = "status";
     };
+    extraConfig = {
+      pull.rebase = false;
+      init.defaultBranch = "main";
+      push.autoSetupRemote = true;
+    };
   };
 }

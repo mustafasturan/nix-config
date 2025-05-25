@@ -13,6 +13,11 @@
     ];
     extraConfig = ''
       set number
+      set number
+      set relativenumber
+      set tabstop=4 shiftwidth=4 expandtab
+      set clipboard=unnamedplus
+      set mouse=a
       colorscheme gruvbox
     '';
   };

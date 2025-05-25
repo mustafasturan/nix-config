@@ -25,6 +25,7 @@
 
     listener {
       timeout = 1800
+      before-sleep-cmd = "${pkgs.libnotify}/bin/notify-send 'Suspending in 10s' && sleep 10";
       on-timeout = bash -c "playerctl --player=playerctld,spotify,firefox,chromium,vlc,mpv status 2>/dev/null | grep -q Playing || systemctl suspend"
     }
   '';

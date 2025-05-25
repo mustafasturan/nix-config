@@ -35,6 +35,8 @@
     hostName = "nixpc";
   };
 
+  virtualisation.docker.enable = true;
+
   programs.zsh.enable = true;
 
   users.users.mustafasturan = {
@@ -78,5 +80,5 @@
   services.getty.autologinUser = "mustafasturan";
 
   system.stateVersion = "25.05";
-  
+
 }

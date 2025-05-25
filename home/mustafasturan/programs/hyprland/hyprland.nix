@@ -1,9 +1,14 @@
 { config, pkgs, ... }: 
 let
   wallpaperDir = "${config.home.homeDirectory}/Pictures/wallpapers";
+
   randomWallpaperScript = pkgs.writeShellScript "random-wallpaper.sh" ''
     WALLPAPER=$(find ${wallpaperDir} -type f \( -iname '*.jpg' -o -iname '*.png' \) | shuf -n 1)
     [ -n "$WALLPAPER" ] && ${pkgs.swww}/bin/swww img "$WALLPAPER" --transition-type any --transition-duration 1
+  '';
+
+  rofiPowerMenu = pkgs.writeShellScriptBin "rofi-power.sh" ''
+    ${pkgs.rofi}/bin/rofi -show power-menu -modi power-menu:${pkgs.rofi-power-menu}/bin/rofi-power-menu
   '';
 in {
   imports = [
@@ -35,16 +40,19 @@ in {
     # set the Hyprland and XDPH packages to null to use the ones from the NixOS module
     package = null;
     portalPackage = null;
+
     settings = {
       "$mod" = "SUPER";
       exec-once = [
-        "${pkgs.swww}/bin/swww-daemon"
-        "${randomWallpaperScript}"
+        "${pkgs.swww}/bin/swww-daemon || true"
+        "${randomWallpaperScript} || true"
         "mako"
         "waybar"
         "nm-applet"
         "blueman-applet"
-        "cliphist store" ];
+        "wl-paste --watch cliphist store &"
+      ];
+
       monitor = ",preferred,auto,1";
 
       general = {
@@ -68,15 +76,17 @@ in {
         "$mod, L, exec, hyprlock"
         "$mod, Q, killactive"
         "$mod, F, fullscreen"
-        "$mod, V, exec, cliphist list | fzf | cliphist decode | wl-copy"
+        "$mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
         "$mod, W, exec, ${randomWallpaperScript}"
         "$mod, left, movefocus, l"
         "$mod, right, movefocus, r"
         "$mod, up, movefocus, u"
         "$mod, down, movefocus, d"
+        "$mod SHIFT, E, exec, ${rofiPowerMenu}"
         "$mod SHIFT, Q, exit"
-        "$mod SHIFT, S, exec, hyprshot -m window -o ~/Pictures/Screenshots"
-        "$mod CTRL, S, exec, hyprshot -m region -o ~/Pictures/Screenshots"
+        "$mod, Print, exec, hyprshot -m output -c"
+        "$mod SHIFT, S, exec, hyprshot -m window -o ~/Pictures/Screenshots -n"
+        "$mod CTRL, S, exec, hyprshot -m region -o ~/Pictures/Screenshots -n"
       ]
       ++ (
         # workspaces
