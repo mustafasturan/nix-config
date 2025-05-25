@@ -53,6 +53,18 @@
     };
   };
 
+  xdg.portal = {
+    enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk      # For GTK dialogs
+      pkgs.xdg-desktop-portal-hyprland # For Wayland + Hyprland integration
+    ];
+    config.common.default = "*";       # Fallback portal behavior
+  };
+
+  # Ensure dbus is enabled (required for portals to work)
+  services.dbus.enable = true;
+
   services.xserver.enable = false;
   services.displayManager.enable = false;
   
