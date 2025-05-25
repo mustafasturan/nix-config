@@ -53,7 +53,6 @@
   services.xserver.enable = false;
   services.displayManager.enable = false;
   
-  services.getty.autoLogin.enable = true;
   services.getty.autoLogin.user = "mustafasturan";
 
   system.stateVersion = "25.05";
