@@ -2,9 +2,7 @@
   boot.kernelModules = [ "nvidia" ];
   boot.kernelParams = [ "nvidia_drm.modeset=1" ];
 
-  hardware.opengl.enable = true;
-  hardware.opengl.driSupport = true;
-  hardware.opengl.driSupport32Bit = true;
+  hardware.graphics.enable = true;
 
   hardware.nvidia = {
     modesetting.enable = true;
