@@ -8,7 +8,7 @@
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {
-    # Build command: 'nixos-rebuild --flake .#your-hostname'
+    # Build command: 'sudo nixos-rebuild switch --flake .#hostname'
     nixosConfigurations.nixpc = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -16,7 +16,7 @@
       ];
     };
 
-    # Build command: 'home-manager --flake .#your-username@your-hostname'
+    # Build command: 'home-manager switch --flake .#username@hostname'
     homeConfigurations = {
       "mustafasturan@nixpc" = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs { system = "x86_64-linux"; };
