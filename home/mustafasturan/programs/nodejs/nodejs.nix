@@ -1,11 +1,7 @@
 { pkgs, ... }: {
   home.packages = [ 
-    nodejs_20
-    pnpm
-    nodePackages.typescript
-    nodePackages.eslint
-    nodePackages.prettier
-    nodePackages.vitest
+    pkgs.nodejs
+    pkgs.pnpm
   ];
 
   home.sessionVariables = {

@@ -17,6 +17,7 @@
     };
 
     # Build command: 'home-manager switch --flake .#username@hostname'
+    # If you don't have home-manager installed, try nix shell nixpkgs#home-manager
     homeConfigurations = {
       "mustafasturan@nixpc" = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs { system = "x86_64-linux"; };

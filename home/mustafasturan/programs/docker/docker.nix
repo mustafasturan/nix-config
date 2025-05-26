@@ -1,3 +1,3 @@
 { pkgs, ... }: {
-  home.packages = [ pkgs.docker pkgs.docker-compose lazydocker ];
+  home.packages = [ pkgs.docker pkgs.docker-compose pkgs.lazydocker ];
 }

@@ -11,4 +11,5 @@
       max-visible = 5;
       anchor = "top-right";
     };
+  };
 }

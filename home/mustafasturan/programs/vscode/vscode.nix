@@ -8,7 +8,7 @@
       dbaeumer.vscode-eslint
     ];
 
-    userSettings = {
+    profiles.default.userSettings = {
       "editor.fontFamily" = "JetBrainsMono Nerd Font";
       "editor.fontSize" = 14;
       "editor.formatOnSave" = true;
