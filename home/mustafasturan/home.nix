@@ -35,7 +35,7 @@
   # Enable home-manager
   programs.home-manager.enable = true;
 
-  home.packages = [ pkgs.nixfmt ];
+  home.packages = [ pkgs.nixfmt-rfc-style ];
 
   home = {
     username = "mustafasturan";
