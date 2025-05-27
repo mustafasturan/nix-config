@@ -10,16 +10,17 @@
 
       modules-left = [ "hyprland/workspaces" "hyprland/window" ];
       modules-center = [ "clock" ];
-      modules-right = [ "tray" "pulseaudio" "network" "cpu" "custom/gpu" "memory" ];
+      modules-right =
+        [ "tray" "pulseaudio" "network" "cpu" "custom/gpu" "memory" ];
 
-      "tray" = {
-        spacing = 10;
-      };
+      "tray" = { spacing = 10; };
 
       "clock" = {
         format = " {:%H:%M}";
         tooltip = true;
-        tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+        tooltip-format = ''
+          <big>{:%Y %B}</big>
+          <tt><small>{calendar}</small></tt>'';
         format-alt = "{:%Y-%m-%d}";
       };
 
@@ -29,14 +30,13 @@
       };
 
       "custom/gpu" = {
-        exec = "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits";
+        exec =
+          "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits";
         interval = 5;
         format = "GPU: {}%";
       };
 
-      "memory" = {
-        format = "{}% ";
-      };
+      "memory" = { format = "{}% "; };
 
       "pulseaudio" = {
         format = "{volume}% {icon}";
@@ -56,7 +56,6 @@
         };
         on-click = "pavucontrol";
       };
-
 
       "network" = {
         format-wifi = " {essid}";

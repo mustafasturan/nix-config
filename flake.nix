@@ -11,9 +11,7 @@
     # Build command: 'sudo nixos-rebuild switch --flake .#hostname'
     nixosConfigurations.nixpc = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      modules = [
-        ./hosts/nixpc/configuration.nix
-      ];
+      modules = [ ./hosts/nixpc/configuration.nix ];
     };
 
     # Build command: 'home-manager switch --flake .#username@hostname'

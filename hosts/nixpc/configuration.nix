@@ -22,13 +22,11 @@
       #   });
       # })
     ];
-    config = {
-      allowUnfree = true;
-    };
+    config = { allowUnfree = true; };
   };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  
+
   # Networking
   networking = {
     networkmanager.enable = true;
@@ -45,8 +43,8 @@
     extraGroups = [ "wheel" "audio" "video" "networkmanager" "docker" ];
     shell = pkgs.zsh;
     openssh.authorizedKeys.keys = [
-        # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
-      ];
+      # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
+    ];
   };
 
   environment.systemPackages = with pkgs; [
@@ -74,15 +72,13 @@
     settings = {
       default_session = {
         command = "Hyprland";
-        user = "mustafasturan"; 
+        user = "mustafasturan";
       };
     };
   };
 
   # Fonts
-  fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
-  ];
+  fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
 
   services.openssh = {
     enable = true;
@@ -95,7 +91,7 @@
   xdg.portal = {
     enable = true;
     extraPortals = [
-      pkgs.xdg-desktop-portal-gtk      # For GTK dialogs
+      pkgs.xdg-desktop-portal-gtk # For GTK dialogs
       pkgs.xdg-desktop-portal-hyprland # For Wayland + Hyprland integration
     ];
   };

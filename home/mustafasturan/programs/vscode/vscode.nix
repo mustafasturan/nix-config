@@ -3,16 +3,37 @@
     enable = true;
 
     profiles.default.extensions = with pkgs.vscode-extensions; [
-      ms-dotnettools.csharp
+      ms-dotnettools.csdevkit
       esbenp.prettier-vscode
       dbaeumer.vscode-eslint
+      github.copilot
+      github.copilot-chat
+      jnoortheen.nix-ide
     ];
 
     profiles.default.userSettings = {
       "editor.fontFamily" = "JetBrainsMono Nerd Font";
-      "editor.fontSize" = 14;
+      "editor.fontSize" = 18;
       "editor.formatOnSave" = true;
       "workbench.colorTheme" = "Default Dark+";
+      "git.autofetch" = true;
+      "nixd" = {
+        "formatting" = { "command" = [ "nixfmt" ]; };
+        "options" = {
+          "nixos" = {
+            "expr" = ''
+              (builtins.getFlake "/absolute/path/to/flake").nixosConfigurations.<name>.options'';
+          };
+          "home-manager" = {
+            "expr" = ''
+              (builtins.getFlake "/absolute/path/to/flake").homeConfigurations.<name>.options'';
+          };
+          "nix-darwin" = {
+            "expr" = ''
+              (builtins.getFlake "''${workspaceFolder}/path/to/flake").darwinConfigurations.<name>.options'';
+          };
+        };
+      };
     };
   };
 }

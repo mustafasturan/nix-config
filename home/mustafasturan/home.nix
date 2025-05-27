@@ -1,11 +1,5 @@
-{
-  inputs,
-  lib,
-  config,
-  pkgs,
-  ...
-}: {
-  imports = [  
+{ inputs, lib, config, pkgs, ... }: {
+  imports = [
     ./programs/docker/docker.nix
     ./programs/dotnet/dotnet.nix
     ./programs/firefox/firefox.nix
@@ -40,6 +34,8 @@
 
   # Enable home-manager
   programs.home-manager.enable = true;
+
+  home.packages = [ pkgs.nixfmt ];
 
   home = {
     username = "mustafasturan";

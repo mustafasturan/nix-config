@@ -1,3 +1,1 @@
-{ pkgs, ... }: {
-  home.packages = [ pkgs.firefox ];
-}
+{ pkgs, ... }: { home.packages = [ pkgs.firefox ]; }
