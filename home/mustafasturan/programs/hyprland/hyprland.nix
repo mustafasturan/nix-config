@@ -84,8 +84,11 @@ in
         blur_passes = 2;
       };
 
-      repeat_rate = 35;
-      repeat_delay = 200;
+      input = {
+        kb_repeat_rate = 35;
+        kb_repeat_delay = 200;
+        accel_profile = adaptive;
+      };
 
       bind =
         [
