@@ -44,7 +44,7 @@
 
   home.packages = [
     pkgs.nixfmt-rfc-style
-    nwg-look
+    pkgs.nwg-look
   ];
 
   home = {
