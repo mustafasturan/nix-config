@@ -1,4 +1,11 @@
-{ inputs, lib, config, pkgs, ... }: {
+{
+  inputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}:
+{
   imports = [
     ./programs/docker/docker.nix
     ./programs/dotnet/dotnet.nix
@@ -35,7 +42,10 @@
   # Enable home-manager
   programs.home-manager.enable = true;
 
-  home.packages = [ pkgs.nixfmt-rfc-style ];
+  home.packages = [
+    pkgs.nixfmt-rfc-style
+    nwg-look
+  ];
 
   home = {
     username = "mustafasturan";
