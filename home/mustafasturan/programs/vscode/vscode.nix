@@ -3,7 +3,7 @@
   programs.vscode = {
     enable = true;
 
-    profiles.mustafasturan.extensions = with pkgs.vscode-extensions; [
+    profiles.default.extensions = with pkgs.vscode-extensions; [
       ms-dotnettools.csdevkit
       esbenp.prettier-vscode
       dbaeumer.vscode-eslint
@@ -13,10 +13,13 @@
       catppuccin.catppuccin-vsc
     ];
 
-    profiles.mustafasturan.userSettings = {
+    profiles.default.userSettings = {
       "editor.fontFamily" = "JetBrainsMono Nerd Font";
       "editor.fontSize" = 16;
       "editor.formatOnSave" = true;
+      "editor.smoothScrolling" = true;
+      "editor.mouseWheelScrollSensitivity" = 1;
+      "workbench.list.smoothScrolling" = true;
       "workbench.colorTheme" = "Catppuccin Mocha";
       "git.autofetch" = true;
       "nixd" = {

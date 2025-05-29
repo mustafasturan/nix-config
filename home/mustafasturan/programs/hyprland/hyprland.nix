@@ -67,7 +67,8 @@ in
         "wl-paste --watch cliphist store &"
       ];
 
-      monitor = ",preferred,auto,1";
+      #monitor = ",preferred,auto,1";
+      monitor = "DP-5, 3840x2160@239.99, 0x0, 1";
 
       general = {
         gaps_in = 5;
@@ -87,7 +88,7 @@ in
       input = {
         kb_repeat_rate = 35;
         kb_repeat_delay = 200;
-        accel_profile = adaptive;
+        accel_profile = "adaptive";
       };
 
       bind =

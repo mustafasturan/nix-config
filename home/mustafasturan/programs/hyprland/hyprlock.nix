@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   xdg.configFile."hypr/hyprlock.conf".text = ''
     general {
       blur = true
@@ -8,14 +9,12 @@
     }
 
     background {
-      monitor = eDP-1
       path = ""
       blur = true
       color = rgba(0, 0, 0, 0.5)
     }
 
     input-field {
-      monitor = eDP-1
       size = 450, 100
       outline_thickness = 4
       outer_color = rgba(255, 255, 255, 0.3)
@@ -32,7 +31,6 @@
     }
 
     label {
-      monitor = eDP-1
       text = cmd[update:1000] echo  $(date '+%H:%M:%S')
       font_size = 64
       font_family = "JetBrainsMono Nerd Font"
@@ -43,7 +41,6 @@
     }
 
     label {
-      monitor = eDP-1
       text = cmd[update:60000] echo  $(date '+%A, %B %d')
       font_size = 32
       font_family = "JetBrainsMono Nerd Font"
@@ -54,7 +51,6 @@
     }
 
     label {
-      monitor = eDP-1
       text = cmd[update:600000] bash -c "curl -s 'https://wttr.in/Kadikoy?format=1'"
       font_size = 28
       font_family = "JetBrainsMono Nerd Font"

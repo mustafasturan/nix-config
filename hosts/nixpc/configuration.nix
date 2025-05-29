@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   imports = [
     ./hardware-configuration.nix
     ../../modules/amd.nix
@@ -22,10 +23,15 @@
       #   });
       # })
     ];
-    config = { allowUnfree = true; };
+    config = {
+      allowUnfree = true;
+    };
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Networking
   networking = {
@@ -40,7 +46,13 @@
   users.users.mustafasturan = {
     isNormalUser = true;
     description = "Mustafa Turan";
-    extraGroups = [ "wheel" "audio" "video" "networkmanager" "docker" ];
+    extraGroups = [
+      "wheel"
+      "audio"
+      "video"
+      "networkmanager"
+      "docker"
+    ];
     shell = pkgs.zsh;
     openssh.authorizedKeys.keys = [
       # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
@@ -58,7 +70,36 @@
     fastfetch
     jq
     greetd.regreet
+    logiops
   ];
+
+  environment.etc."logid.cfg".text = ''
+    devices: (
+      {
+        name = "MX Master 3S";
+        smartshift:{
+            on: true;
+            threshold: 30;
+            torque: 50;
+        };
+        hiresscroll: {
+          enabled: true;
+          invert: false;
+          target: false;
+        };
+        dpi = 1200;
+      }
+    );
+  '';
+
+  systemd.services.logid = {
+    description = "Logitech HID++ daemon";
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      ExecStart = "${pkgs.logiops}/bin/logid";
+      Restart = "always";
+    };
+  };
 
   programs.hyprland = {
     enable = true;
