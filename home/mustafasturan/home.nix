@@ -46,7 +46,6 @@
     pkgs.nixfmt-rfc-style
     pkgs.nwg-look
     pkgs.inter
-    pkgs.catppuccin-gtk
   ];
 
   home = {
@@ -71,7 +70,7 @@
     };
     font = {
       name = "Inter";
-      size = 14;
+      size = 16;
     };
   };
 

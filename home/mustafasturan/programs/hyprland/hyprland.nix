@@ -10,9 +10,15 @@ let
   rofiPowerMenu = pkgs.writeShellScriptBin "rofi-power.sh" ''
     ${pkgs.rofi}/bin/rofi -show power-menu -modi power-menu:${pkgs.rofi-power-menu}/bin/rofi-power-menu
   '';
-in {
-  imports =
-    [ ./hypridle.nix ./hyprlock.nix ./mako.nix ./rofi.nix ./waybar.nix ];
+in
+{
+  imports = [
+    ./hypridle.nix
+    ./hyprlock.nix
+    ./mako.nix
+    ./rofi.nix
+    ./waybar.nix
+  ];
 
   home.packages = with pkgs; [
     hypridle
@@ -38,8 +44,7 @@ in {
     XDG_SESSION_DESKTOP = "hyprland"; # Set session desktop to Hyprland
     QT_AUTO_SCREEN_SCALE_FACTOR = "1"; # Qt apps scale automatically
     QT_QPA_PLATFORM = "wayland"; # Qt apps use Wayland
-    QT_WAYLAND_DISABLE_WINDOWDECORATION =
-      "1"; # Disable window decorations in Qt apps
+    QT_WAYLAND_DISABLE_WINDOWDECORATION = "1"; # Disable window decorations in Qt apps
     QT_QPA_PLATFORMTHEME = "qt6ct"; # Use qt6ct for Qt apps theming
   };
 
@@ -79,33 +84,45 @@ in {
         blur_passes = 2;
       };
 
-      bind = [
-        "$mod, RETURN, exec, kitty"
-        "$mod, SPACE, exec, rofi -show drun"
-        "$mod, L, exec, hyprlock"
-        "$mod, Q, killactive"
-        "$mod, F, fullscreen"
-        "$mod, R, exec, hyprctl reload"
-        "$mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
-        "$mod, W, exec, ${randomWallpaperScript}"
-        "$mod, left, movefocus, l"
-        "$mod, right, movefocus, r"
-        "$mod, up, movefocus, u"
-        "$mod, down, movefocus, d"
-        "$mod SHIFT, E, exec, ${rofiPowerMenu}"
-        "$mod SHIFT, Q, exit"
-        "$mod, Print, exec, hyprshot -m output -c"
-        "$mod SHIFT, S, exec, hyprshot -m window -o ~/Pictures/Screenshots -n"
-        "$mod CTRL, S, exec, hyprshot -m region -o ~/Pictures/Screenshots -n"
-      ] ++ (
-        # workspaces
-        # binds $mod + [shift +] {1..9} to [move to] workspace {1..9}
-        builtins.concatLists (builtins.genList (i:
-          let ws = i + 1;
-          in [
-            "$mod, code:1${toString i}, workspace, ${toString ws}"
-            "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
-          ]) 9));
+      repeat_rate = 35;
+      repeat_delay = 200;
+
+      bind =
+        [
+          "$mod, RETURN, exec, kitty"
+          "$mod, SPACE, exec, rofi -show drun"
+          "$mod, L, exec, hyprlock"
+          "$mod, Q, killactive"
+          "$mod, F, fullscreen"
+          "$mod, R, exec, hyprctl reload"
+          "$mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+          "$mod, W, exec, ${randomWallpaperScript}"
+          "$mod, left, movefocus, l"
+          "$mod, right, movefocus, r"
+          "$mod, up, movefocus, u"
+          "$mod, down, movefocus, d"
+          "$mod SHIFT, E, exec, ${rofiPowerMenu}"
+          "$mod SHIFT, Q, exit"
+          "$mod, Print, exec, hyprshot -m output -c"
+          "$mod SHIFT, S, exec, hyprshot -m window -o ~/Pictures/Screenshots -n"
+          "$mod CTRL, S, exec, hyprshot -m region -o ~/Pictures/Screenshots -n"
+        ]
+        ++ (
+          # workspaces
+          # binds $mod + [shift +] {1..9} to [move to] workspace {1..9}
+          builtins.concatLists (
+            builtins.genList (
+              i:
+              let
+                ws = i + 1;
+              in
+              [
+                "$mod, code:1${toString i}, workspace, ${toString ws}"
+                "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
+              ]
+            ) 9
+          )
+        );
     };
     systemd.variables = [ "--all" ];
   };
