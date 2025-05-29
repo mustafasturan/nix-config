@@ -45,6 +45,8 @@
   home.packages = [
     pkgs.nixfmt-rfc-style
     pkgs.nwg-look
+    pkgs.inter
+    pkgs.catppuccin-gtk
   ];
 
   home = {
@@ -61,15 +63,15 @@
     enable = true;
     theme = {
       package = pkgs.flat-remix-gtk;
-      name = "Flat-Remix-GTK-Grey-Darkest";
+      name = "Flat-Remix-GTK-Cyan-Darkest";
     };
     iconTheme = {
       package = pkgs.adwaita-icon-theme;
       name = "Adwaita";
     };
     font = {
-      name = "Sans";
-      size = 11;
+      name = "Inter";
+      size = 14;
     };
   };
 
