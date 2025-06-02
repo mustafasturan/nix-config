@@ -5,6 +5,7 @@
     ../../modules/amd.nix
     ../../modules/bluetooth.nix
     ../../modules/bootloader.nix
+    ../../modules/docker.nix
     ../../modules/flatpak.nix
     ../../modules/locale.nix
     ../../modules/nvidia.nix
@@ -39,10 +40,7 @@
     hostName = "nixpc";
   };
 
-  virtualisation.docker.enable = true;
-
   programs.zsh.enable = true;
-
   users.users.mustafasturan = {
     isNormalUser = true;
     description = "Mustafa Turan";
@@ -70,36 +68,7 @@
     fastfetch
     jq
     greetd.regreet
-    logiops
   ];
-
-  environment.etc."logid.cfg".text = ''
-    devices: (
-      {
-        name = "MX Master 3S";
-        smartshift:{
-            on: true;
-            threshold: 30;
-            torque: 50;
-        };
-        hiresscroll: {
-          enabled: true;
-          invert: false;
-          target: false;
-        };
-        dpi = 1200;
-      }
-    );
-  '';
-
-  systemd.services.logid = {
-    description = "Logitech HID++ daemon";
-    wantedBy = [ "multi-user.target" ];
-    serviceConfig = {
-      ExecStart = "${pkgs.logiops}/bin/logid";
-      Restart = "always";
-    };
-  };
 
   programs.hyprland = {
     enable = true;
@@ -143,5 +112,4 @@
   services.displayManager.enable = false;
 
   system.stateVersion = "25.05";
-
 }

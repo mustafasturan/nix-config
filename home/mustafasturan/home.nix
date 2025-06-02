@@ -7,7 +7,6 @@
 }:
 {
   imports = [
-    ./programs/docker/docker.nix
     ./programs/dotnet/dotnet.nix
     ./programs/firefox/firefox.nix
     ./programs/git/git.nix

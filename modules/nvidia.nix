@@ -1,9 +1,14 @@
-{ config, pkgs, lib, ... }: {
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+{
   boot.kernelModules = [ "nvidia" ];
   boot.kernelParams = [ "nvidia_drm.modeset=1" ];
 
   hardware.graphics.enable = true;
-
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement.enable = true;
