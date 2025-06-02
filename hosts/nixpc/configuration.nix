@@ -7,9 +7,14 @@
     ../../modules/bootloader.nix
     ../../modules/docker.nix
     ../../modules/flatpak.nix
+    ../../modules/journald.nix
     ../../modules/locale.nix
     ../../modules/nvidia.nix
     ../../modules/pipewire.nix
+    ../../modules/printing.nix
+    ../../modules/steam.nix
+    ../../modules/time.nix
+    ../../modules/virtualization.nix
   ];
 
   nixpkgs = {
@@ -49,7 +54,6 @@
       "audio"
       "video"
       "networkmanager"
-      "docker"
     ];
     shell = pkgs.zsh;
     openssh.authorizedKeys.keys = [
