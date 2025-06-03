@@ -40,8 +40,6 @@
       qt.enable = true;
       kitty.enable = true;
       waybar.enable = true;
-      bash.enable = true;
-      zsh.enable = true;
       vscode.enable = true;
       neovim.enable = true;
     };
