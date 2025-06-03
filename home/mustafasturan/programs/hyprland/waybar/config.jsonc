@@ -17,6 +17,7 @@
     "clock"
   ],
   "modules-right": [
+    "tray",
     "memory",
     "cpu",
     "temperature",
@@ -25,7 +26,6 @@
     "backlight",
     "battery",
     "power-profiles-daemon",
-    "tray",
     // "custom/power-button",
     "custom/rofi"
   ],
@@ -115,7 +115,6 @@
 
   // Backlight module
   "backlight": {
-    // "device": "acpi_video1",
     "format": " {icon}  {percent}%",
     "format-icons": [
       "󰃚", // 0-14%

@@ -15,6 +15,7 @@
     ./programs/neovim/neovim.nix
     ./programs/nodejs/nodejs.nix
     ./programs/rider/rider.nix
+    ./programs/stylix/stylix.nix
     ./programs/vscode/vscode.nix
     ./programs/zsh/zsh.nix
   ];
@@ -44,34 +45,12 @@
   home.packages = [
     pkgs.nixfmt-rfc-style
     pkgs.nwg-look
-    pkgs.inter
     pkgs.gsimplecal
   ];
 
   home = {
     username = "mustafasturan";
     homeDirectory = "/home/mustafasturan";
-    pointerCursor = {
-      gtk.enable = true;
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Classic";
-      size = 16;
-    };
-  };
-  gtk = {
-    enable = true;
-    theme = {
-      package = pkgs.flat-remix-gtk;
-      name = "Flat-Remix-GTK-Cyan-Darkest";
-    };
-    iconTheme = {
-      package = pkgs.adwaita-icon-theme;
-      name = "Adwaita";
-    };
-    font = {
-      name = "Inter";
-      size = 16;
-    };
   };
 
   # Nicely reload system units when changing configs
