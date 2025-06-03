@@ -1,5 +1,12 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
+  home.sessionVariables = {
+    XCURSOR_THEME = "Bibata-Modern-Classic";
+    XCURSOR_SIZE = "18";
+    GTK_CURSORS_THEME = "Bibata-Modern-Classic";
+    QT_QPA_PLATFORMTHEME = "qt6ct";
+  };
+
   stylix = {
     autoEnable = true;
     base16Scheme = "gruvbox-dark-medium";
@@ -43,14 +50,6 @@
       waybar.enable = true;
       vscode.enable = true;
       neovim.enable = true;
-    };
-
-    extraOptions = {
-      home.sessionVariables = {
-        XCURSOR_THEME = "Bibata-Modern-Classic";
-        XCURSOR_SIZE = "18";
-        GTK_CURSORS_THEME = "Bibata-Modern-Classic";
-      };
     };
   };
 }

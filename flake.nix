@@ -33,7 +33,7 @@
         "mustafasturan@nixpc" = home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs { system = "x86_64-linux"; };
           modules = [
-            stylix.homeManagerModules.stylix
+            stylix.homeModules.stylix
             ./home/mustafasturan/home.nix
           ];
           extraSpecialArgs = { inherit stylix; };
