@@ -123,8 +123,8 @@
     enable = true;
     autoEnable = true;
 
-    #base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
-    base16Scheme = "catppuccin-mocha";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
+
     polarity = "dark";
 
     cursor = {
