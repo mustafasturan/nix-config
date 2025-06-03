@@ -10,7 +10,6 @@
       github.copilot
       github.copilot-chat
       jnoortheen.nix-ide
-      catppuccin.catppuccin-vsc
     ];
 
     profiles.default.userSettings = {
@@ -20,7 +19,6 @@
       "editor.smoothScrolling" = true;
       "editor.mouseWheelScrollSensitivity" = 1;
       "workbench.list.smoothScrolling" = true;
-      "workbench.colorTheme" = "Catppuccin Mocha";
       "git.autofetch" = true;
       "nixd" = {
         "formatting" = {

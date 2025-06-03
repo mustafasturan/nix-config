@@ -74,8 +74,6 @@ in
         gaps_in = 5;
         gaps_out = 20;
         border_size = 2;
-        col.active_border = "rgba(88c0d0ee)";
-        col.inactive_border = "rgba(2e3440aa)";
       };
 
       decoration = {

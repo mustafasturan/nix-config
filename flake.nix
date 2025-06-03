@@ -24,6 +24,7 @@
         system = "x86_64-linux";
         modules = [
           ./hosts/nixpc/configuration.nix
+          inputs.stylix.nixosModules.stylix
         ];
       };
 
@@ -31,12 +32,10 @@
       # If you don't have home-manager installed, try nix shell nixpkgs#home-manager
       homeConfigurations = {
         "mustafasturan@nixpc" = home-manager.lib.homeManagerConfiguration {
-          pkgs = import nixpkgs { system = "x86_64-linux"; };
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
           modules = [
-            stylix.homeModules.stylix
             ./home/mustafasturan/home.nix
           ];
-          extraSpecialArgs = { inherit stylix; };
         };
       };
     };

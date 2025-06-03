@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   programs.neovim = {
     enable = true;
     viAlias = true;
@@ -9,16 +10,13 @@
       nvim-lspconfig
       telescope-nvim
       plenary-nvim
-      gruvbox-nvim
     ];
     extraConfig = ''
-      set number
       set number
       set relativenumber
       set tabstop=4 shiftwidth=4 expandtab
       set clipboard=unnamedplus
       set mouse=a
-      colorscheme gruvbox
     '';
   };
 }
