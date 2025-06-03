@@ -45,6 +45,7 @@
     pkgs.nixfmt-rfc-style
     pkgs.nwg-look
     pkgs.inter
+    pkgs.gsimplecal
   ];
 
   home = {

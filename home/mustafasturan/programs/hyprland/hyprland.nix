@@ -17,7 +17,7 @@ in
     ./hyprlock.nix
     ./mako.nix
     ./rofi.nix
-    ./waybar.nix
+    ./waybar/waybar.nix
   ];
 
   home.packages = with pkgs; [
