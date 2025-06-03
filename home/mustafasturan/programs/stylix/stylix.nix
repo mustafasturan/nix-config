@@ -23,9 +23,9 @@
       };
 
       sizes = {
-        desktop = 16;
-        popups = 18;
-        terminal = 16;
+        desktop = 24;
+        popups = 32;
+        terminal = 24;
       };
     };
 
@@ -38,10 +38,19 @@
     targets = {
       gtk.enable = true;
       qt.enable = true;
+      hyprland.enable = true;
       kitty.enable = true;
       waybar.enable = true;
       vscode.enable = true;
       neovim.enable = true;
+    };
+
+    extraOptions = {
+      home.sessionVariables = {
+        XCURSOR_THEME = "Bibata-Modern-Classic";
+        XCURSOR_SIZE = "18";
+        GTK_CURSORS_THEME = "Bibata-Modern-Classic";
+      };
     };
   };
 }
