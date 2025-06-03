@@ -15,7 +15,6 @@
     ./programs/neovim/neovim.nix
     ./programs/nodejs/nodejs.nix
     ./programs/rider/rider.nix
-    ./programs/stylix/stylix.nix
     ./programs/vscode/vscode.nix
     ./programs/zsh/zsh.nix
   ];
