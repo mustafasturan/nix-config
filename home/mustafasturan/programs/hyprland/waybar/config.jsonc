@@ -64,7 +64,7 @@
   "format": "  {class}",
   "max-length": 15,
   "icon": false,
-  "icon-size": 18,
+  "icon-size": 28,
   "separate-outputs": true
   },
   
@@ -76,7 +76,7 @@
 
   // System Tray module
   "tray": {
-    "icon-size": 18,
+    "icon-size": 28,
     "spacing": 7
   },
 
