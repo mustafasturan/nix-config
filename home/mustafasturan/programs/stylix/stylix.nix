@@ -8,28 +8,31 @@
       monospace = {
         package = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
         name = "JetBrainsMono Nerd Font";
-        size = 14;
       };
       sansSerif = {
         package = pkgs.inter;
         name = "Inter";
-        size = 16;
       };
       serif = {
         package = pkgs.inter;
         name = "Inter";
-        size = 16;
       };
       emoji = {
         package = pkgs.noto-fonts-emoji;
         name = "Noto Color Emoji";
+      };
+
+      sizes = {
+        desktop = 16;
+        popups = 18;
+        terminal = 16;
       };
     };
 
     cursor = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Classic";
-      size = 20;
+      size = 18;
     };
 
     targets = {
