@@ -1,7 +1,7 @@
 {
   // General Waybar configuration
   "layer": "top",
-  "height": 21,
+  "height": 42,
   "spacing": 0,
   "margin-top": 0,
   "margin-right": 0,
@@ -64,7 +64,7 @@
   "format": "  {class}",
   "max-length": 15,
   "icon": false,
-  "icon-size": 9,
+  "icon-size": 18,
   "separate-outputs": true
   },
   
@@ -76,7 +76,7 @@
 
   // System Tray module
   "tray": {
-    "icon-size": 12,
+    "icon-size": 18,
     "spacing": 7
   },
 
