@@ -13,8 +13,6 @@
     ];
 
     profiles.default.userSettings = {
-      "editor.fontFamily" = "JetBrainsMono Nerd Font";
-      "editor.fontSize" = 16;
       "editor.formatOnSave" = true;
       "editor.smoothScrolling" = true;
       "editor.mouseWheelScrollSensitivity" = 1;

@@ -13,6 +13,8 @@
   outputs =
     {
       nixpkgs,
+      home-manager,
+      stylix,
       ...
     }@inputs:
     {
