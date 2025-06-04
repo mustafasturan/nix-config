@@ -41,8 +41,10 @@
         applications = 24;
         terminal = 24;
         desktop = 24;
-        popups = 24;
+        popups = 22;
       };
+
+      targets.qt.enable = true;
     };
   };
 }
