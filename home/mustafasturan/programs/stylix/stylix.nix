@@ -1,9 +1,16 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 {
   stylix = {
     enable = true;
+    autoEnable = true;
 
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/unikitty-dark.yaml";
+
     polarity = "dark";
 
     cursor = {
@@ -14,16 +21,16 @@
 
     fonts = {
       monospace = {
-        package = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
-        name = "JetBrainsMono Nerd Font Mono";
+        package = pkgs.nerd-fonts.jetbrains-mono;
+        name = "JetBrainsMono Nerd Font";
       };
       sansSerif = {
-        package = pkgs.dejavu_fonts;
-        name = "Dejavu Sans";
+        package = pkgs.inter;
+        name = "Inter";
       };
       serif = {
-        package = pkgs.dejavu_fonts;
-        name = "Dejavu Sans";
+        package = pkgs.inter;
+        name = "Inter";
       };
       emoji = {
         package = pkgs.noto-fonts-emoji;
@@ -35,6 +42,15 @@
         terminal = 24;
         desktop = 24;
         popups = 32;
+      };
+    };
+
+    targets = {
+      hyprland = {
+        enable = true;
+      };
+      kitty = {
+        enable = true;
       };
     };
   };

@@ -18,17 +18,7 @@
   ];
 
   nixpkgs = {
-    overlays = [
-      # If you want to use overlays exported from other flakes:
-      # neovim-nightly-overlay.overlays.default
-
-      # Or define it inline, for example:
-      # (final: prev: {
-      #   hi = final.hello.overrideAttrs (oldAttrs: {
-      #     patches = [ ./change-hello-to-hi.patch ];
-      #   });
-      # })
-    ];
+    overlays = [ ];
     config = {
       allowUnfree = true;
     };
@@ -56,9 +46,7 @@
       "networkmanager"
     ];
     shell = pkgs.zsh;
-    openssh.authorizedKeys.keys = [
-      # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
-    ];
+    openssh.authorizedKeys.keys = [ ];
   };
 
   environment.systemPackages = with pkgs; [
@@ -92,11 +80,9 @@
   };
 
   # Fonts
-  fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
-    dejavu_fonts
-    noto-fonts-emoji
-  ];
+  #fonts.packages = with pkgs; [
+  #  nerd-fonts.jetbrains-mono
+  #];
 
   services.openssh = {
     enable = true;
@@ -118,43 +104,6 @@
 
   services.xserver.enable = false;
   services.displayManager.enable = false;
-
-  stylix = {
-    enable = true;
-    autoEnable = true;
-
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
-
-    polarity = "dark";
-
-    cursor = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Ice";
-      size = 18;
-    };
-
-    fonts = {
-      monospace = {
-        name = "JetBrainsMono Nerd Font";
-      };
-      sansSerif = {
-        name = "Dejavu Sans";
-      };
-      serif = {
-        name = "Dejavu Sans";
-      };
-      emoji = {
-        name = "Noto Color Emoji";
-      };
-
-      sizes = {
-        applications = 20;
-        terminal = 24;
-        desktop = 24;
-        popups = 32;
-      };
-    };
-  };
 
   system.stateVersion = "25.05";
 }

@@ -12,10 +12,7 @@
 
   outputs =
     {
-      self,
       nixpkgs,
-      home-manager,
-      stylix,
       ...
     }@inputs:
     {
@@ -24,7 +21,6 @@
         system = "x86_64-linux";
         modules = [
           ./hosts/nixpc/configuration.nix
-          inputs.stylix.nixosModules.stylix
         ];
       };
 
@@ -35,6 +31,7 @@
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           modules = [
             ./home/mustafasturan/home.nix
+            stylix.homeModules.stylix
           ];
         };
       };
