@@ -44,14 +44,5 @@
         popups = 24;
       };
     };
-
-    targets = {
-      hyprland = {
-        enable = true;
-      };
-      kitty = {
-        enable = true;
-      };
-    };
   };
 }
