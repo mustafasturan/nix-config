@@ -45,7 +45,7 @@ in
     QT_AUTO_SCREEN_SCALE_FACTOR = "1"; # Qt apps scale automatically
     QT_QPA_PLATFORM = "wayland"; # Qt apps use Wayland
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1"; # Disable window decorations in Qt apps
-    QT_QPA_PLATFORMTHEME = "qt6ct"; # Use qt6ct for Qt apps theming
+    #QT_QPA_PLATFORMTHEME = "qt6ct"; # Use qt6ct for Qt apps theming
   };
 
   wayland.windowManager.hyprland = {
